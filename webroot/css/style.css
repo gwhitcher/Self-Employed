@@ -1,0 +1,12 @@
+body {
+
+}
+
+/* Alerts */
+.alert {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    padding: 5px;
+    z-index: 9998;
+}

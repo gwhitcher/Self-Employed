@@ -1,0 +1,1 @@
+<h1>Welcome to the administration <?php echo $current_user['name']; ?>!</h1>
