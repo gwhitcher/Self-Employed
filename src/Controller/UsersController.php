@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
 use Cake\Validation\Validator;
@@ -120,7 +121,7 @@ class UsersController extends AppController {
 
 	public function add() {
 		$this->loadModel('Users');
-		$user = $this->Users->newEntity($this->request->getData());
+		$user = $this->Users->newEntity();
 		if ($this->request->is('post')) {
 			//Validation
 			$validator = new Validator();
@@ -149,9 +150,13 @@ class UsersController extends AppController {
 			}
 
 			//Password hash
+			/*
 			$password_hash = new DefaultPasswordHasher;
 			$password = $password_hash->hash($this->request->getData['password']);
 			$user->password = $password;
+			*/
+
+			$user = $this->Users->patchEntity($user, $this->request->getData());
 
 			//Save
 			if ($this->Users->save($user)) {
@@ -213,14 +218,15 @@ class UsersController extends AppController {
 
 
 			//Save
-			$data = $this->request->getData();
 
 			//Password hash
+			/*
 			$password_hash = new DefaultPasswordHasher;
 			$password = $password_hash->hash($this->request->getData['password']);
 			$data['password'] = $password;
+			*/
 
-			$this->Users->patchEntity($user, $data);
+			$this->Users->patchEntity($user, $this->request->getData());
 			if ($this->Users->save($user)) {
 				$this->Flash->set('The user has been updated.',
 					['element' => 'alert-box',

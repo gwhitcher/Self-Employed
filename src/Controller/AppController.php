@@ -28,15 +28,6 @@ use Cake\Event\Event;
 class AppController extends Controller
 {
 
-    /**
-     * Initialization hook method.
-     *
-     * Use this method to add common initialization code like loading components.
-     *
-     * e.g. `$this->loadComponent('Security');`
-     *
-     * @return void
-     */
     public function initialize()
     {
         parent::initialize();
@@ -60,6 +51,15 @@ class AppController extends Controller
 		    'logoutRedirect' => [
 			    'controller' => 'Pages',
 			    'action' => 'home'
+		    ],
+		    'authenticate' => [
+			    'Form' => [
+				    'userModel' => 'Users', //your Model Name
+				    'fields' => [
+				    	'username' => 'username',
+					    'password' => 'password'
+				    ],
+			    ]
 		    ]
 	    ]);
 	    $this->set('current_user', $this->Auth->user());

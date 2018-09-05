@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2018 at 06:48 PM
+-- Generation Time: Sep 05, 2018 at 09:24 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -71,7 +71,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `role`, `created`, `modified`) VALUES
-(2, 'admin', 'admin@admin.com', 'admin', '$2y$10$ezCsFYtFUQFiyK2ipVoy6erB0JOCKWC30RlvHWvcxFElK06FoQQL6', 'admin', NULL, NULL);
+(7, 'admin', 'admin@admin.com', 'admin', '$2y$10$GhE0ybxCMMFtH8QreK1V9eeazxsFv6TvUUj1c4QokLRcBZJf3K.Xa', 'admin', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -132,13 +132,13 @@ ALTER TABLE `mileage`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users_banned`
 --
 ALTER TABLE `users_banned`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
